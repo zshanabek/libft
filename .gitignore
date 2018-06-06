@@ -1,0 +1,7 @@
+*.o
+*.out
+.vscode/
+libft.a  
+a.out.*/
+main.c
+tempCodeRunnerFile.c
