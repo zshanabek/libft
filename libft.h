@@ -6,7 +6,7 @@
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/21 19:23:44 by atlekbai          #+#    #+#             */
-/*   Updated: 2018/06/06 17:08:39 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/06/20 19:31:22 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,7 @@ int				ft_putstrw(const wchar_t *str);
 void			ft_wstrdel(wchar_t **as);
 void			ft_strupcase(char *str);
 void			ft_print2darr(char **matrix);
+char			**ft_create2darr(int n, int x);
+int				**ft_create2dintarr(int n, int x);
 
 #endif
