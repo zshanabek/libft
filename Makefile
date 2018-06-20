@@ -32,7 +32,7 @@ ft_wstrlen.c ft_putstrw.c ft_putsymbol.c ft_wstrdup.c ft_wstrlen.c			   \
 ft_charlen.c ft_create2darr.c ft_create2dintarr.c get_next_line.c
 
 PF_SRC = pf/pf_start.c pf/pf_spec_handlers.c pf/pf_colors.c pf/pf_itoa_max.c   \
-pf/pf_pad_prec_size.c pf/pf_dspec.c pf/pf_uspec.c pf/pf_helpers.cpf/pf_utils.c \
+pf/pf_pad_prec_size.c pf/pf_dspec.c pf/pf_uspec.c pf/pf_helpers.c pf/pf_utils.c\
 
 OBJ = $(SRC:.c=.o)
 PF_OBJ = $(PF_SRC:.c=.o)
