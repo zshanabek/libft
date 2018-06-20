@@ -1,7 +1,7 @@
 *.o
 *.out
 .vscode/
-libft.a  
+libft.a
 a.out.*/
 main.c
 tempCodeRunnerFile.c
