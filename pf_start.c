@@ -6,7 +6,7 @@
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/02 23:55:10 by zshanabe          #+#    #+#             */
-/*   Updated: 2018/06/06 17:00:40 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/06/20 19:33:14 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,17 +77,17 @@ static int		get_inform(const char *restrict format, int i, t_item *form)
 	return (i);
 }
 
-static int		go_str(int i, va_list ap, const char *restrict format, int *count)
+static int		go_str(int i, va_list ap, const char *restrict f, int *c)
 {
 	t_item		*form;
 
 	form = create_struct();
-	i = get_inform(format, i, form);
+	i = get_inform(f, i, form);
 	if (form->spec == '\0')
 		i = -2;
 	if (i != -2)
-		identify_spec(form, ap, count);
-	if (*count == -1)
+		identify_spec(form, ap, c);
+	if (*c == -1)
 		i = -1;
 	if (form->pad > 0)
 		free(form->pad_str);

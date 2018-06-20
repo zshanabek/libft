@@ -6,13 +6,13 @@
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/02 23:56:05 by zshanabe          #+#    #+#             */
-/*   Updated: 2018/06/06 17:02:03 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/06/20 19:33:47 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void			ft_sign_order(t_item *form, int *count)
+void	ft_sign_order(t_item *form, int *count)
 {
 	if (form->sign == '+')
 		(*count)++;
@@ -26,7 +26,7 @@ void			ft_sign_order(t_item *form, int *count)
 		form->order = 3;
 }
 
-static char		*ft_strfill(size_t size, char c)
+char	*ft_strfill(size_t size, char c)
 {
 	char *str;
 
@@ -38,7 +38,7 @@ static char		*ft_strfill(size_t size, char c)
 	return (str);
 }
 
-void			create_output(t_item *form)
+void	create_output(t_item *form)
 {
 	if (form->zer > 0)
 		form->zer_str = ft_strfill(form->zer, '0');
