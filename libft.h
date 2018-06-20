@@ -6,7 +6,7 @@
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/21 19:23:44 by atlekbai          #+#    #+#             */
-/*   Updated: 2018/06/20 19:31:22 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/06/20 21:43:27 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 # include <wchar.h>
 # include <locale.h>
 # include <fcntl.h>
-
+# include "pf/ft_printf.h"
+# include "get_next_line.h"
 typedef struct	s_list
 {
 	void			*content;
