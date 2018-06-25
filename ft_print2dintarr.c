@@ -6,7 +6,7 @@
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/24 19:02:52 by zshanabe          #+#    #+#             */
-/*   Updated: 2018/06/24 19:25:47 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/06/25 13:59:53 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ void	ft_print2dintarr(int **matrix, int len)
 	while (matrix[i])
 	{
 		ft_printf("%d|", i);		
-		ft_putintarr(matrix[i], len);
-		ft_putchar('\n');
+		ft_print1dintarr(matrix[i], len);
 		i++;
 	}
 }
