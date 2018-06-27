@@ -6,7 +6,7 @@
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/18 17:50:21 by zshanabe          #+#    #+#             */
-/*   Updated: 2018/06/18 18:00:58 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/06/27 18:15:14 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ int		**ft_create2dintarr(int n, int x)
 			return (NULL);
 		i++;
 	}
+	arr[i] = 0;
 	return (arr);
 }
