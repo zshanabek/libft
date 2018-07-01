@@ -6,7 +6,7 @@
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/21 19:23:44 by atlekbai          #+#    #+#             */
-/*   Updated: 2018/07/01 14:45:32 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/07/01 20:54:20 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,5 +108,6 @@ void			ft_print2dintarr(int **matrix, int len);
 void			ft_print1dintarr(int *arr, int len);
 char			**ft_create2darr(int n, int x);
 int				**ft_create2dintarr(int n, int x);
-int				*ft_intdup(int const *src, size_t len);
+void			ft_intcpy(int *arr1, const int *arr2, size_t n);
+
 #endif
