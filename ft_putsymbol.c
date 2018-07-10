@@ -37,9 +37,7 @@ static void	ft_putunicode(wchar_t c, int size)
 int			ft_putsymbol(wchar_t c)
 {
 	int		size;
-	int		flag;
 
-	flag = 1;
 	size = ft_charlen(c);
 	if (size == 1)
 		ft_putchar(c);
