@@ -6,7 +6,7 @@
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/20 23:44:29 by zshanabe          #+#    #+#             */
-/*   Updated: 2018/03/27 15:25:53 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/07/09 21:30:16 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strncpy(char *dst, const char *src, size_t len)
 	}
 	while (len--)
 	{
-		dst[i] = 0;
+		dst[i] = '\0';
 		i++;
 	}
 	return (dst);
