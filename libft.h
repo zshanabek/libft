@@ -56,6 +56,7 @@ int				ft_isalpha(int c);
 int				ft_isalnum(int c);
 void			ft_bzero(void *s, size_t n);
 int				ft_atoi(const char *str);
+intmax_t		ft_atoimax(const char *str);
 void			*ft_memalloc(size_t size);
 void			ft_memdel(void **ap);
 char			*ft_strnew(size_t size);
