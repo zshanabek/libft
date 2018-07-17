@@ -6,7 +6,7 @@
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/19 15:03:32 by zshanabe          #+#    #+#             */
-/*   Updated: 2018/06/06 17:09:45 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/07/17 20:03:38 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,14 @@ static int	read_zsh(int fd, char **str, char **line)
 		temp = *str;
 		*str = ft_strjoin(temp, buf);
 		free(temp);
-		ft_strclr(buf);
+		ft_strdel(&buf);
 		if (check_for_newline(str, line))
 		{
 			ft_strdel(&buf);
 			return (1);
 		}
 	}
-	ft_strclr(buf);
+	ft_strdel(&buf);
 	return (0);
 }
 
