@@ -6,7 +6,7 @@
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/21 19:23:44 by atlekbai          #+#    #+#             */
-/*   Updated: 2018/07/17 19:21:10 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/07/18 10:21:06 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <fcntl.h>
 # include "pf/ft_printf.h"
 # include "get_next_line.h"
+
 typedef struct	s_list
 {
 	void			*content;
