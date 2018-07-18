@@ -46,7 +46,7 @@ static int	read_zsh(int fd, char **str, char **line)
 		temp = *str;
 		*str = ft_strjoin(temp, buf);
 		free(temp);
-		ft_strdel(&buf);
+		ft_strclr(buf);
 		if (check_for_newline(str, line))
 		{
 			ft_strdel(&buf);
