@@ -43,7 +43,7 @@ typedef struct	s_item
 	char	*zer_str;
 }				t_item;
 
-int				ft_printf(const char *restrict format, ...);
+int				ft_printf(const char *format, ...);
 int				calculate_zeros(int len, t_item *form);
 int				calculate_padding(int len, t_item *form);
 int				is_specifier(char c);
@@ -63,6 +63,6 @@ t_item			*create_struct();
 intmax_t		find_length(va_list ap, t_item *form);
 uintmax_t		find_length_u(va_list ap, t_item *form);
 void			count_return_value(t_item *form, int num, int len, int *count);
-int				identify_color(const char *restrict s, int i);
+int				identify_color(const char *s, int i);
 
 #endif

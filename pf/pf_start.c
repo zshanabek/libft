@@ -34,7 +34,7 @@ static void		identify_spec(t_item *form, va_list ap, int *count)
 		ft_analyze_c(form->spec, form, count);
 }
 
-static int		ft_flags(const char *restrict format, int i, t_item *form)
+static int		ft_flags(const char *format, int i, t_item *form)
 {
 	i++;
 	while (is_flag(format[i]))
@@ -51,7 +51,7 @@ static int		ft_flags(const char *restrict format, int i, t_item *form)
 	return (i);
 }
 
-static int		get_inform(const char *restrict format, int i, t_item *form)
+static int		get_inform(const char *format, int i, t_item *form)
 {
 	i = ft_flags(format, i, form);
 	while (ft_isdigit(format[i]))
@@ -77,7 +77,7 @@ static int		get_inform(const char *restrict format, int i, t_item *form)
 	return (i);
 }
 
-static int		go_str(int i, va_list ap, const char *restrict f, int *c)
+static int		go_str(int i, va_list ap, const char *f, int *c)
 {
 	t_item		*form;
 
@@ -98,7 +98,7 @@ static int		go_str(int i, va_list ap, const char *restrict f, int *c)
 	return (i);
 }
 
-int				ft_printf(const char *restrict format, ...)
+int				ft_printf(const char *format, ...)
 {
 	int			i;
 	int			count;
