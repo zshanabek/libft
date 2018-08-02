@@ -6,20 +6,22 @@
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/25 16:32:43 by zshanabe          #+#    #+#             */
-/*   Updated: 2018/04/19 17:11:43 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/08/02 14:30:10 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int		ft_isempty(char const *str)
 {
-	char *p;
+	int i;
 
-	p = (char *)str;
-	while (*p != '\0')
+	i = 0;
+	while (str[i])
 	{
-		if (!((unsigned char)*p <= 32))
+		if (!ft_isws(str[i]))
 			return (0);
-		p++;
+		i++;
 	}
 	return (1);
 }
