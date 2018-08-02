@@ -33,7 +33,7 @@ static int		put_color(char *color)
 	return (1);
 }
 
-int				identify_color(const char *restrict s, int i)
+int				identify_color(const char *s, int i)
 {
 	int		len;
 	int		k;
