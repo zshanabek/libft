@@ -6,7 +6,7 @@
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/25 16:32:43 by zshanabe          #+#    #+#             */
-/*   Updated: 2018/08/02 14:30:10 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/08/03 11:56:40 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@ int		ft_isempty(char const *str)
 	int i;
 
 	i = 0;
+	if (str == NULL)
+		return (0);
+	if (str[0] == '\0')
+		return (0);
 	while (str[i])
 	{
 		if (!ft_isws(str[i]))
