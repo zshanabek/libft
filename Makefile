@@ -6,7 +6,7 @@
 #    By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/10 15:26:36 by zshanabe          #+#    #+#              #
-#    Updated: 2018/07/22 12:07:31 by zshanabe         ###   ########.fr        #
+#    Updated: 2018/08/03 10:06:48 by zshanabe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,10 @@ ft_charlen.c ft_create2darr.c ft_create2dintarr.c get_next_line.c			   \
 ft_print2dintarr.c ft_print1dintarr.c ft_intcpy.c ft_atoimax.c ft_del2darr.c   \
 ft_2darrlen.c
 
-PF_SRC = pf/pf_start.c pf/pf_spec_handlers.c pf/pf_colors.c pf/pf_itoa_max.c   \
-pf/pf_pad_prec_size.c pf/pf_dspec.c pf/pf_uspec.c pf/pf_helpers.c pf/pf_utils.c\
+PF_SRC_NAME = pf_start.c pf_spec_handlers.c pf_colors.c pf_itoa_max.c	       \
+pf_pad_prec_size.c pf_dspec.c pf_uspec.c pf_helpers.c pf_utils.c               \
+
+PF_SRC = $(addprefix pf/, $(PF_SRC_NAME))
 
 OBJ = $(SRC:.c=.o)
 PF_OBJ = $(PF_SRC:.c=.o)
@@ -44,8 +46,11 @@ all: $(NAME)
 $(NAME): $(OBJ) $(PF_OBJ)
 	@ar rc $(NAME) $(OBJ) $(PF_OBJ)
 	@ranlib $(NAME)
-	@echo "\x1b[32mLibrary is successfully built!\x1b[0m"
-	
+	@echo "\x1b[32mLibrary is successfully built\x1b[0m"
+
+%.o: %.c
+	@gcc $(FLAGS) -o $@ -c $<
+
 clean:
 	@rm -f $(OBJ)
 	@rm -f $(PF_OBJ)
@@ -54,9 +59,6 @@ fclean: clean
 	@rm -f $(NAME)
 	
 re: fclean all
-
-%.o: %.c
-	@gcc $(FLAGS) -c -o $@ $<
 
 .PHONY: all clean fclean re
 
