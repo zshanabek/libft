@@ -6,7 +6,7 @@
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/17 19:18:43 by zshanabe          #+#    #+#             */
-/*   Updated: 2018/07/18 10:20:48 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/08/05 21:46:55 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_del2darr(char **arr)
 	i = 0;
 	while (arr[i])
 	{
-		free(arr[i]);
+		ft_strdel(&arr[i]);
 		i++;
 	}
 	free(arr);
