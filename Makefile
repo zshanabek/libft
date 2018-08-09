@@ -36,15 +36,40 @@ ft_2darrlen.c ft_strresub.c
 PF_SRC_NAME = pf_start.c pf_spec_handlers.c pf_colors.c pf_itoa_max.c	       \
 pf_pad_prec_size.c pf_dspec.c pf_uspec.c pf_helpers.c pf_utils.c               \
 
+PF2_SRC_NAME = ./ft_printf.c \
+			\
+			./start/ft_crossroad.c ./start/ft_bublik.c ./start/ft_ointer.c \
+			./start/ft_n.c ./start/ft_valid.c ./start/ft_invalid.c\
+			\
+			./uni/ft_uni.c ./uni/ft_usize.c\
+			\
+			./octa/ft_octa.c ./octa/ft_octa_left.c ./octa/ft_octa_right.c\
+			\
+			./hex/ft_hex.c ./hex/ft_hex_left.c \
+			./hex/ft_hex_right.c\
+			\
+			./lib/ft_itoa_base.c ./lib/ft_uitoa_base.c ./lib/ft_double_c.c\
+			./lib/ft_initial_style.c ./lib/ft_itoa2.c\
+			\
+			./int/ft_number.c ./int/ft_number_left.c \
+			./int/ft_number_right.c \
+			\
+			./char/ft_char.c ./char/ft_uchar.c\
+			\
+			./string/ft_string.c ./string/ft_ustring_left.c \
+			./string/ft_ustring_right.c
+
 PF_SRC = $(addprefix pf/, $(PF_SRC_NAME))
+PF2_SRC = $(addprefix printf/, $(PF2_SRC_NAME))
 
 OBJ = $(SRC:.c=.o)
 PF_OBJ = $(PF_SRC:.c=.o)
+PF2_OBJ = $(PF2_SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(PF_OBJ)
-	@ar rc $(NAME) $(OBJ) $(PF_OBJ)
+$(NAME): $(OBJ) $(PF_OBJ) $(PF2_OBJ)
+	@ar rc $(NAME) $(OBJ) $(PF_OBJ) $(PF2_OBJ)
 	@ranlib $(NAME)
 	@echo "\x1b[32mLibrary is successfully built\x1b[0m"
 
@@ -54,6 +79,7 @@ $(NAME): $(OBJ) $(PF_OBJ)
 clean:
 	@rm -f $(OBJ)
 	@rm -f $(PF_OBJ)
+	@rm -f $(PF2_OBJ)
 
 fclean: clean
 	@rm -f $(NAME)
