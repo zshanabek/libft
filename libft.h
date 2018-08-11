@@ -6,7 +6,7 @@
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/21 19:23:44 by atlekbai          #+#    #+#             */
-/*   Updated: 2018/08/07 19:28:28 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/08/11 14:38:42 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,4 +115,5 @@ void			ft_intcpy(int *arr1, const int *arr2, size_t n);
 void			ft_del2darr(char **arr);
 int				ft_2darrlen(char **arr);
 char			*ft_strresub(char const *s, unsigned int start, size_t len);
+int				ft_atoi_base(const char *str, int str_base);
 #endif
