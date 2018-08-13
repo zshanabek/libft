@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/11 14:37:27 by zshanabe          #+#    #+#             */
-/*   Updated: 2018/08/11 14:37:46 by zshanabe         ###   ########.fr       */
+/*   Created: 2018/08/13 12:46:00 by vradchen          #+#    #+#             */
+/*   Updated: 2018/08/13 15:55:46 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,15 @@ static int	ft_iswhitespace(char c)
 	return (0);
 }
 
-int			base(int c, int base)
+static int	ft_base(int c, int base)
 {
-	char *str = "0123456789abcdef";
-	char *str2 = "0123456789abcdef";
-	int  i = 0;
+	char	*str;
+	char	*str2;
+	int		i;
 
+	i = 0;
+	str = "0123456789abcdef";
+	str2 = "0123456789abcdef";
 	while (i < base)
 	{
 		if (c == str[i] || c == str2[i])
@@ -36,25 +39,28 @@ int			base(int c, int base)
 
 int			ft_atoi_base(const char *str, int str_base)
 {
-	int		nb = 0;
-	int		negatif = 0;
-	int		i = 0;
+	int		nb;
+	int		minus;
+	int		i;
 
+	i = 0;
+	nb = 0;
+	minus = 0;
 	while (ft_iswhitespace(str[i]))
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
-			negatif = 1;
+			minus = 1;
 		i++;
 	}
-	while (base(str[i], str_base) != -1)
+	while (ft_base(str[i], str_base) != -1)
 	{
-		nb = nb * str_base;
-		nb = nb + base(str[i], str_base);
+		nb *= str_base;
+		nb += ft_base(str[i], str_base);
 		i++;
 	}
-	if (negatif)
+	if (minus)
 		return (-nb);
 	return (nb);
 }
