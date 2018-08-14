@@ -6,7 +6,7 @@
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/02 23:55:21 by zshanabe          #+#    #+#             */
-/*   Updated: 2018/08/14 15:53:49 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/08/14 17:11:12 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,10 @@ void	count_return_value(t_item *form, int is_zero, int len)
 		else if (form->spec == 'x' || form->spec == 'X' || form->spec == 'p')
 			(form->count) += 2;
 	}
+}
+
+int		costyl(int count, va_list ap)
+{
+	va_end(ap);
+	return (count);
 }

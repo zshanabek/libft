@@ -6,7 +6,7 @@
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/02 23:55:37 by zshanabe          #+#    #+#             */
-/*   Updated: 2018/08/14 16:43:40 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/08/14 17:02:26 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_analyze_c(wint_t c, t_item *form)
 	}
 }
 
-void	ft_analyze_percent(t_item *form )
+void	ft_analyze_percent(t_item *form)
 {
 	form->pad = form->pad - 1;
 	create_output(form);

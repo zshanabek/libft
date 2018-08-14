@@ -6,7 +6,7 @@
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/02 23:55:10 by zshanabe          #+#    #+#             */
-/*   Updated: 2018/08/14 16:32:59 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/08/14 17:10:59 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,10 +117,9 @@ int				ft_printf(int fd, const char *format, ...)
 			if ((i = go_str(i, form, ap, format)) == -1)
 				return (-1);
 			else if (i == -2)
-				return (count);
+				return (form->count);
 		}
 		i++;
 	}
-	va_end(ap);
-	return (count);
+	return (costyl(form->count, ap));
 }

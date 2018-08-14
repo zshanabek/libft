@@ -6,7 +6,7 @@
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/02 23:56:16 by zshanabe          #+#    #+#             */
-/*   Updated: 2018/08/14 16:20:10 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/08/14 17:18:21 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 typedef struct	s_item
 {
 	int		fd;
-	int		count;	
+	int		count;
 	int		plus;
 	int		space;
 	int		minus;
@@ -66,5 +66,5 @@ intmax_t		find_length(va_list ap, t_item *form);
 uintmax_t		find_length_u(va_list ap, t_item *form);
 void			count_return_value(t_item *form, int num, int len);
 int				identify_color(const char *s, int i);
-
+int				costyl(int count, va_list ap);
 #endif
