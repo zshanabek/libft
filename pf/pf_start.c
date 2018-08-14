@@ -6,7 +6,7 @@
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/02 23:55:10 by zshanabe          #+#    #+#             */
-/*   Updated: 2018/08/14 18:12:26 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/08/14 21:10:58 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,6 @@ static int		go_str(int i, t_item *form, va_list ap, const char *f)
 		free(form->pad_str);
 	if (form->zer > 0)
 		free(form->zer_str);
-	free(form);
-	form = NULL;
 	return (i);
 }
 
@@ -118,8 +116,10 @@ int				ft_printf(int fd, const char *format, ...)
 				return (-1);
 			else if (i == -2)
 				return (form->count);
+			count += form->count;
 		}
 		i++;
 	}
-	return (costyl(form->count, ap));
+	va_end(ap);
+	return (count);
 }
