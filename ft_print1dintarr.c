@@ -6,7 +6,7 @@
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/24 19:03:37 by zshanabe          #+#    #+#             */
-/*   Updated: 2018/07/18 10:16:53 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/08/14 16:21:10 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	ft_print1dintarr(int *arr, int len)
 	while (i < len)
 	{
 		if ((len - 1) == i)
-			ft_printf("%d", arr[i]);
+			ft_printf(1, "%d", arr[i]);
 		else
-			ft_printf("%d ", arr[i]);
+			ft_printf(1, "%d ", arr[i]);
 		i++;
 	}
 	ft_putchar('\n');

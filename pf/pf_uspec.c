@@ -6,7 +6,7 @@
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/02 23:55:34 by zshanabe          #+#    #+#             */
-/*   Updated: 2018/06/06 17:01:29 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/08/14 16:42:37 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,22 +39,22 @@ void			ft_prefix(t_item *form, int num)
 static void		make_output_u(t_item *form, int num, char *output)
 {
 	if (form->order == 1)
-		ft_putstr(form->hex_sign);
+		ft_putstr_fd(form->hex_sign, form->fd);
 	if (form->pad > 0 && form->minus == false)
-		ft_putstr(form->pad_str);
+		ft_putstr_fd(form->pad_str, form->fd);
 	if (form->order == 2)
-		ft_putstr(form->hex_sign);
+		ft_putstr_fd(form->hex_sign, form->fd);
 	if (form->zer > 0)
-		ft_putstr(form->zer_str);
+		ft_putstr_fd(form->zer_str, form->fd);
 	if (form->order == 3)
-		ft_putstr(form->hex_sign);
+		ft_putstr_fd(form->hex_sign, form->fd);
 	if (num != 0 || form->zer != 0)
-		ft_putstr(output);
+		ft_putstr_fd(output, form->fd);
 	if (form->pad > 0 && form->minus == true)
-		ft_putstr(form->pad_str);
+		ft_putstr_fd(form->pad_str, form->fd);
 }
 
-void			ft_analyze_u(uintmax_t num, t_item *form, int *count)
+void			ft_analyze_u(uintmax_t num, t_item *form)
 {
 	char *output;
 
@@ -72,9 +72,9 @@ void			ft_analyze_u(uintmax_t num, t_item *form, int *count)
 	if (form->zer == 0 && num == 0 && form->pad > 0)
 		form->pad++;
 	if (form->hash)
-		ft_sign_order(form, count);
+		ft_sign_order(form);
 	create_output(form);
 	make_output_u(form, num, output);
-	count_return_value(form, (num == 0) ? 1 : 0, ft_strlen(output), count);
+	count_return_value(form, (num == 0) ? 1 : 0, ft_strlen(output));
 	free(output);
 }

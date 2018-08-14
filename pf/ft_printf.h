@@ -6,7 +6,7 @@
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/02 23:56:16 by zshanabe          #+#    #+#             */
-/*   Updated: 2018/06/06 16:58:11 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/08/14 16:20:10 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 
 typedef struct	s_item
 {
+	int		fd;
+	int		count;	
 	int		plus;
 	int		space;
 	int		minus;
@@ -43,26 +45,26 @@ typedef struct	s_item
 	char	*zer_str;
 }				t_item;
 
-int				ft_printf(const char *format, ...);
+int				ft_printf(int fd, const char *format, ...);
 int				calculate_zeros(int len, t_item *form);
 int				calculate_padding(int len, t_item *form);
 int				is_specifier(char c);
 int				is_modifier(char c);
 int				is_flag(char c);
-void			ft_analyze_d(intmax_t n, t_item *form, int *c);
-void			ft_analyze_ls(wchar_t *str, t_item *form, int *c);
-void			ft_analyze_s(char *str, t_item *form, int *count);
-void			ft_analyze_u(uintmax_t n, t_item *form, int *c);
-void			ft_analyze_c(wint_t c, t_item *form, int *count);
-void			ft_analyze_percent(t_item *form, int *count);
-void			ft_sign_order(t_item *form, int *count);
+void			ft_analyze_d(intmax_t n, t_item *form);
+void			ft_analyze_ls(wchar_t *str, t_item *form);
+void			ft_analyze_s(char *str, t_item *form);
+void			ft_analyze_u(uintmax_t n, t_item *form);
+void			ft_analyze_c(wint_t c, t_item *form);
+void			ft_analyze_percent(t_item *form);
+void			ft_sign_order(t_item *form);
 void			create_output(t_item *form);
 char			*ft_itoa_max(intmax_t n);
 wint_t			find_length_c(va_list ap, t_item *form);
 t_item			*create_struct();
 intmax_t		find_length(va_list ap, t_item *form);
 uintmax_t		find_length_u(va_list ap, t_item *form);
-void			count_return_value(t_item *form, int num, int len, int *count);
+void			count_return_value(t_item *form, int num, int len);
 int				identify_color(const char *s, int i);
 
 #endif
