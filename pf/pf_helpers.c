@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pf_helpers.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zhunissali <zhunissali@student.42.fr>      +#+  +:+       +#+        */
+/*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/02 23:55:21 by zshanabe          #+#    #+#             */
-/*   Updated: 2018/08/15 07:56:57 by zhunissali       ###   ########.fr       */
+/*   Updated: 2018/08/15 15:50:51 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	count_return_value(t_item *form, int is_zero, int len)
 	}
 }
 
-void			ft_format(const char *f, int fd, int *i, int *count)
+void	ft_format(const char *f, int fd, int *i, int *count)
 {
 	if (f[*i] == '{' && ft_isalpha(f[*i + 1]))
 		*i = identify_color(f, fd, *i);
