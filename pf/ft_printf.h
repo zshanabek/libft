@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zhunissali <zhunissali@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/02 23:56:16 by zshanabe          #+#    #+#             */
-/*   Updated: 2018/08/14 18:06:56 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/08/15 07:57:19 by zhunissali       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,5 @@ intmax_t		find_length(va_list ap, t_item *form);
 uintmax_t		find_length_u(va_list ap, t_item *form);
 void			count_return_value(t_item *form, int num, int len);
 int				identify_color(const char *s, int fd, int i);
-int				costyl(int count, va_list ap);
+void			ft_format(const char *f, int fd, int *i, int *count);
 #endif

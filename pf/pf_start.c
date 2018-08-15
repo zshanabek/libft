@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pf_start.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zhunissali <zhunissali@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/02 23:55:10 by zshanabe          #+#    #+#             */
-/*   Updated: 2018/08/14 21:10:58 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/08/15 07:56:45 by zhunissali       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,10 +105,7 @@ int				ft_printf(int fd, const char *format, ...)
 	va_start(ap, format);
 	while (format[i])
 	{
-		if (format[i] == '{' && ft_isalpha(format[i + 1]))
-			i = identify_color(format, fd, i);
-		else if (format[i] != '%' && ft_putchar_fd(format[i], fd))
-			count++;
+		ft_format(format, fd, &i, &count);
 		if (format[i] == '%')
 		{
 			form = create_struct(fd, count);
