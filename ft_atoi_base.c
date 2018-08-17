@@ -37,11 +37,11 @@ static int	ft_base(int c, int base)
 	return (-1);
 }
 
-int			ft_atoi_base(const char *str, int str_base)
+long long	ft_atoi_base(const char *str, int str_base)
 {
-	int		nb;
-	int		minus;
-	int		i;
+	long long	nb;
+	int			minus;
+	int			i;
 
 	i = 0;
 	nb = 0;

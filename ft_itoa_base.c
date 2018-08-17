@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static char		*fill_arr(intmax_t value, intmax_t nbr, int base, int len)
+static char		*fill_arr(long long value, long long nbr, int base, int len)
 {
 	char	*arr;
 	char	*base_string;
@@ -33,10 +33,10 @@ static char		*fill_arr(intmax_t value, intmax_t nbr, int base, int len)
 	return (arr);
 }
 
-char			*ft_itoa_base(intmax_t value, int base)
+char			*ft_itoa_base(long long value, int base)
 {
 	int			len;
-	intmax_t	nbr;
+	long long	nbr;
 	char		*arr;
 
 	len = 0;

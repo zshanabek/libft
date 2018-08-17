@@ -90,6 +90,8 @@ static int		go_str(int i, t_item *form, va_list ap, const char *f)
 		free(form->pad_str);
 	if (form->zer > 0)
 		free(form->zer_str);
+	free(form);
+	form = NULL;
 	return (i);
 }
 

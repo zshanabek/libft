@@ -94,7 +94,7 @@ int				ft_isempty(char const *str);
 int				ft_intlen(intmax_t n);
 int				ft_isws(char c);
 int				ft_intmax(int a, int b);
-char			*ft_itoa_base(intmax_t value, int base);
+char			*ft_itoa_base(long long value, int base);
 char			*ft_itoa_base_u(uintmax_t value, int base);
 wchar_t			*ft_wstrsub(wchar_t const *s, unsigned int start, size_t len);
 wchar_t			*ft_wstrnew(size_t size);
@@ -114,5 +114,5 @@ void			ft_intcpy(int *arr1, const int *arr2, size_t n);
 void			ft_del2darr(char **arr);
 int				ft_2darrlen(char **arr);
 char			*ft_strresub(char const *s, unsigned int start, size_t len);
-int				ft_atoi_base(const char *str, int str_base);
+long long		ft_atoi_base(const char *str, int str_base);
 #endif
