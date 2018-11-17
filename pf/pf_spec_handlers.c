@@ -6,13 +6,13 @@
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/02 23:55:37 by zshanabe          #+#    #+#             */
-/*   Updated: 2018/08/14 17:02:26 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/06/04 21:29:11 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_analyze_c(wint_t c, t_item *form)
+void	ft_analyze_c(wint_t c, t_item *form, int *count)
 {
 	int		size;
 
@@ -22,36 +22,36 @@ void	ft_analyze_c(wint_t c, t_item *form)
 	form->pad = form->pad - size;
 	create_output(form);
 	if (form->minus == false && form->pad > 0)
-		ft_putstr_fd(form->pad_str, form->fd);
+		ft_putstr(form->pad_str);
 	if (form->spec != 'C' && form->size != 'l')
-		ft_putchar_fd(c, form->fd);
+		ft_putchar(c);
 	else if (ft_putsymbol(c) == -1)
-		form->count = -1;
+		*count = -1;
 	if (form->minus == true && form->pad > 0)
-		ft_putstr_fd(form->pad_str, form->fd);
-	if (form->count != -1)
+		ft_putstr(form->pad_str);
+	if (*count != -1)
 	{
 		if (form->pad >= 0)
-			form->count += form->pad;
-		form->count += size;
+			*count += form->pad;
+		*count += size;
 	}
 }
 
-void	ft_analyze_percent(t_item *form)
+void	ft_analyze_percent(t_item *form, int *count)
 {
 	form->pad = form->pad - 1;
 	create_output(form);
 	if (form->minus == false && form->pad > 0)
-		ft_putstr_fd(form->pad_str, form->fd);
-	ft_putchar_fd('%', form->fd);
+		ft_putstr(form->pad_str);
+	ft_putchar('%');
 	if (form->minus == true && form->pad > 0)
-		ft_putstr_fd(form->pad_str, form->fd);
+		ft_putstr(form->pad_str);
 	if (form->pad >= 0)
-		form->count += form->pad;
-	form->count += 1;
+		*count += form->pad;
+	*count += 1;
 }
 
-void	ft_analyze_ls(wchar_t *str, t_item *form)
+void	ft_analyze_ls(wchar_t *str, t_item *form, int *count)
 {
 	wchar_t		*output;
 	wchar_t		*temp;
@@ -69,17 +69,17 @@ void	ft_analyze_ls(wchar_t *str, t_item *form)
 	form->pad = calculate_padding(ft_wstrlen(output), form);
 	create_output(form);
 	if (form->minus == false && form->pad > 0)
-		ft_putstr_fd(form->pad_str, form->fd);
+		ft_putstr(form->pad_str);
 	if (ft_putstrw(output) == -1)
-		form->count = -1;
+		*count = -1;
 	if (form->minus == true && form->pad > 0)
-		ft_putstr_fd(form->pad_str, form->fd);
-	if (form->count != -1)
-		count_return_value(form, 0, ft_wstrlen(output));
+		ft_putstr(form->pad_str);
+	if (*count != -1)
+		count_return_value(form, 0, ft_wstrlen(output), count);
 	free(output);
 }
 
-void	ft_analyze_s(char *str, t_item *form)
+void	ft_analyze_s(char *str, t_item *form, int *count)
 {
 	char *output;
 	char *temp;
@@ -97,12 +97,12 @@ void	ft_analyze_s(char *str, t_item *form)
 	form->pad = calculate_padding(ft_strlen(output), form);
 	create_output(form);
 	if (form->minus == false && form->pad > 0)
-		ft_putstr_fd(form->pad_str, form->fd);
-	ft_putstr_fd(output, form->fd);
+		ft_putstr(form->pad_str);
+	ft_putstr(output);
 	if (form->minus == true && form->pad > 0)
-		ft_putstr_fd(form->pad_str, form->fd);
+		ft_putstr(form->pad_str);
 	if (form->pad >= 0)
-		form->count += form->pad;
-	form->count += ft_strlen(output);
+		*count += form->pad;
+	*count += ft_strlen(output);
 	free(output);
 }

@@ -6,42 +6,42 @@
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/02 23:55:30 by zshanabe          #+#    #+#             */
-/*   Updated: 2018/08/14 16:42:10 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/06/03 01:04:14 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void		make_output_d(intmax_t num, t_item *form)
+void	make_output_d(intmax_t num, t_item *form, int *count)
 {
 	char *str;
 
 	if (form->space)
 	{
-		ft_putchar_fd(' ', form->fd);
-		(form->count)++;
+		ft_putchar(' ');
+		(*count)++;
 	}
 	if (form->order == 1)
-		ft_putchar_fd(form->sign, form->fd);
+		ft_putchar(form->sign);
 	if (form->pad > 0 && form->minus == false)
-		ft_putstr_fd(form->pad_str, form->fd);
+		ft_putstr(form->pad_str);
 	if (form->order == 2)
-		ft_putchar_fd(form->sign, form->fd);
+		ft_putchar(form->sign);
 	if (form->zer > 0)
-		ft_putstr_fd(form->zer_str, form->fd);
+		ft_putstr(form->zer_str);
 	if (form->order == 3)
-		ft_putchar_fd(form->sign, form->fd);
+		ft_putchar(form->sign);
 	str = ft_itoa_max(num);
 	if (num < 0)
-		ft_putstr_fd(str + 1, form->fd);
+		ft_putstr(str + 1);
 	else if (num != 0 || form->zer != 0)
-		ft_putstr_fd(str, form->fd);
+		ft_putstr(str);
 	if (form->pad > 0 && form->minus == true)
-		ft_putstr_fd(form->pad_str, form->fd);
+		ft_putstr(form->pad_str);
 	free(str);
 }
 
-void			ft_analyze_d(intmax_t num, t_item *form)
+void	ft_analyze_d(intmax_t num, t_item *form, int *count)
 {
 	int len;
 
@@ -63,7 +63,7 @@ void			ft_analyze_d(intmax_t num, t_item *form)
 		form->pad++;
 	create_output(form);
 	if (form->sign == '+' || form->sign == '-')
-		ft_sign_order(form);
-	make_output_d(num, form);
-	count_return_value(form, (num == 0) ? 1 : 0, ft_intlen(num));
+		ft_sign_order(form, count);
+	make_output_d(num, form, count);
+	count_return_value(form, (num == 0) ? 1 : 0, ft_intlen(num), count);
 }

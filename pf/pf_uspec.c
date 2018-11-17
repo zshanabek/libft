@@ -6,13 +6,13 @@
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/02 23:55:34 by zshanabe          #+#    #+#             */
-/*   Updated: 2018/08/14 16:42:37 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/06/03 01:01:28 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void			ft_prefix(t_item *form, int num)
+void	ft_prefix(t_item *form, int num)
 {
 	if ((form->spec == 'o' || form->spec == 'O') &&
 		form->prefix && (num == 0 && form->zer != 0))
@@ -36,25 +36,25 @@ void			ft_prefix(t_item *form, int num)
 	}
 }
 
-static void		make_output_u(t_item *form, int num, char *output)
+void	make_output_u(t_item *form, int num, char *output)
 {
 	if (form->order == 1)
-		ft_putstr_fd(form->hex_sign, form->fd);
+		ft_putstr(form->hex_sign);
 	if (form->pad > 0 && form->minus == false)
-		ft_putstr_fd(form->pad_str, form->fd);
+		ft_putstr(form->pad_str);
 	if (form->order == 2)
-		ft_putstr_fd(form->hex_sign, form->fd);
+		ft_putstr(form->hex_sign);
 	if (form->zer > 0)
-		ft_putstr_fd(form->zer_str, form->fd);
+		ft_putstr(form->zer_str);
 	if (form->order == 3)
-		ft_putstr_fd(form->hex_sign, form->fd);
+		ft_putstr(form->hex_sign);
 	if (num != 0 || form->zer != 0)
-		ft_putstr_fd(output, form->fd);
+		ft_putstr(output);
 	if (form->pad > 0 && form->minus == true)
-		ft_putstr_fd(form->pad_str, form->fd);
+		ft_putstr(form->pad_str);
 }
 
-void			ft_analyze_u(uintmax_t num, t_item *form)
+void	ft_analyze_u(uintmax_t num, t_item *form, int *count)
 {
 	char *output;
 
@@ -72,9 +72,9 @@ void			ft_analyze_u(uintmax_t num, t_item *form)
 	if (form->zer == 0 && num == 0 && form->pad > 0)
 		form->pad++;
 	if (form->hash)
-		ft_sign_order(form);
+		ft_sign_order(form, count);
 	create_output(form);
 	make_output_u(form, num, output);
-	count_return_value(form, (num == 0) ? 1 : 0, ft_strlen(output));
+	count_return_value(form, (num == 0) ? 1 : 0, ft_strlen(output), count);
 	free(output);
 }

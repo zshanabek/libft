@@ -3,38 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   pf_start.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zhunissali <zhunissali@student.42.fr>      +#+  +:+       +#+        */
+/*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/02 23:55:10 by zshanabe          #+#    #+#             */
-/*   Updated: 2018/08/15 07:56:45 by zhunissali       ###   ########.fr       */
+/*   Updated: 2018/11/17 18:48:14 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void		identify_spec(t_item *form, va_list ap)
+void		identify_spec(t_item *form, va_list ap, int *count)
 {
 	if (form->spec == 'd' || form->spec == 'i' || form->spec == 'D')
-		ft_analyze_d(find_length(ap, form), form);
+		ft_analyze_d(find_length(ap, form), form, count);
 	else if (form->spec == 'o' || form->spec == 'x' || form->spec == 'u')
-		ft_analyze_u(find_length_u(ap, form), form);
+		ft_analyze_u(find_length_u(ap, form), form, count);
 	else if (form->spec == 'p' || form->spec == 'X')
-		ft_analyze_u(find_length_u(ap, form), form);
+		ft_analyze_u(find_length_u(ap, form), form, count);
 	else if (form->spec == 'O' || form->spec == 'U')
-		ft_analyze_u(va_arg(ap, unsigned long int), form);
+		ft_analyze_u(va_arg(ap, unsigned long int), form, count);
 	else if (form->spec == 'S' || (form->spec == 's' && form->size == 'l'))
-		ft_analyze_ls(va_arg(ap, wchar_t *), form);
+		ft_analyze_ls(va_arg(ap, wchar_t *), form, count);
 	else if (form->spec == 's')
-		ft_analyze_s(va_arg(ap, char *), form);
+		ft_analyze_s(va_arg(ap, char *), form, count);
 	else if (form->spec == 'c' || form->spec == 'C')
-		ft_analyze_c(find_length_c(ap, form), form);
+		ft_analyze_c(find_length_c(ap, form), form, count);
 	else if (form->spec == '%')
-		ft_analyze_percent(form);
+		ft_analyze_percent(form, count);
 	else
-		ft_analyze_c(form->spec, form);
+		ft_analyze_c(form->spec, form, count);
 }
 
-static int		ft_flags(const char *format, int i, t_item *form)
+int			ft_flags(const char *format, int i, t_item *form)
 {
 	i++;
 	while (is_flag(format[i]))
@@ -51,7 +51,7 @@ static int		ft_flags(const char *format, int i, t_item *form)
 	return (i);
 }
 
-static int		get_inform(const char *format, int i, t_item *form)
+int			get_inform(const char *format, int i, t_item *form)
 {
 	i = ft_flags(format, i, form);
 	while (ft_isdigit(format[i]))
@@ -77,14 +77,17 @@ static int		get_inform(const char *format, int i, t_item *form)
 	return (i);
 }
 
-static int		go_str(int i, t_item *form, va_list ap, const char *f)
+int			go_str(int i, va_list ap, const char *format, int *count)
 {
-	i = get_inform(f, i, form);
+	t_item		*form;
+
+	form = create_struct();
+	i = get_inform(format, i, form);
 	if (form->spec == '\0')
 		i = -2;
 	if (i != -2)
-		identify_spec(form, ap);
-	if (form->count == -1)
+		identify_spec(form, ap, count);
+	if (*count == -1)
 		i = -1;
 	if (form->pad > 0)
 		free(form->pad_str);
@@ -95,11 +98,10 @@ static int		go_str(int i, t_item *form, va_list ap, const char *f)
 	return (i);
 }
 
-int				ft_printf(int fd, const char *format, ...)
+int			ft_printf(const char *format, ...)
 {
 	int			i;
 	int			count;
-	t_item		*form;
 	va_list		ap;
 
 	i = 0;
@@ -107,15 +109,16 @@ int				ft_printf(int fd, const char *format, ...)
 	va_start(ap, format);
 	while (format[i])
 	{
-		ft_format(format, fd, &i, &count);
+		if (format[i] == '{' && ft_isalpha(format[i + 1]))
+			i = identify_color(format, i);
+		else if (format[i] != '%' && ft_putchar(format[i]))
+			count++;
 		if (format[i] == '%')
 		{
-			form = create_struct(fd, count);
-			if ((i = go_str(i, form, ap, format)) == -1)
+			if ((i = go_str(i, ap, format, &count)) == -1)
 				return (-1);
 			else if (i == -2)
-				return (form->count);
-			count += form->count;
+				return (count);
 		}
 		i++;
 	}

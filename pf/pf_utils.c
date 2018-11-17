@@ -6,16 +6,16 @@
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/02 23:56:05 by zshanabe          #+#    #+#             */
-/*   Updated: 2018/08/14 17:36:11 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/06/02 23:56:05 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_sign_order(t_item *form)
+void	ft_sign_order(t_item *form, int *count)
 {
 	if (form->sign == '+')
-		(form->count)++;
+		(*count)++;
 	if ((form->pad <= 0 && form->zer <= 0) ||
 	(form->pad > 0 && form->zer <= 0 && form->zero == true) ||
 	(form->zer > form->pad))
@@ -48,15 +48,13 @@ void	create_output(t_item *form)
 		form->pad_str = ft_strfill(form->pad, ' ');
 }
 
-t_item	*create_struct(int fd, int count)
+t_item	*create_struct(void)
 {
 	t_item *form;
 
 	form = (t_item *)malloc(sizeof(t_item));
 	if (form == NULL)
 		return (NULL);
-	form->fd = fd;
-	form->count = count;
 	form->plus = false;
 	form->minus = false;
 	form->space = false;
