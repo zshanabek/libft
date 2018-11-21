@@ -6,7 +6,7 @@
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/21 17:55:45 by zshanabe          #+#    #+#             */
-/*   Updated: 2018/05/16 14:17:35 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/11/21 15:18:53 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int		ft_atoi(const char *str)
 {
 	int				i;
-	long long int	res;
 	int				sign;
+	long long int	res;
 
 	res = 0;
 	sign = 1;

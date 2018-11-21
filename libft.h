@@ -6,7 +6,7 @@
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/21 19:23:44 by atlekbai          #+#    #+#             */
-/*   Updated: 2018/11/19 20:06:37 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/11/21 15:17:15 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <wchar.h>
 # include <locale.h>
 # include <fcntl.h>
+# include <limits.h>
 # include "pf/ft_printf.h"
 # include "get_next_line.h"
 
