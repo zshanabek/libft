@@ -6,7 +6,7 @@
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/21 19:23:44 by atlekbai          #+#    #+#             */
-/*   Updated: 2018/11/21 15:17:15 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/11/21 17:47:02 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list			*ft_lstaddend(t_list **head, t_list *new);
 void			ft_nbrendl(intmax_t n);
 int				ft_isempty(char const *str);
+int				ft_isdigital(char *line);
 int				ft_intlen(intmax_t n);
 int				ft_isws(char c);
 int				ft_intmax(int a, int b);
