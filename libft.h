@@ -6,7 +6,7 @@
 /*   By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/21 19:23:44 by atlekbai          #+#    #+#             */
-/*   Updated: 2018/11/21 17:47:02 by zshanabe         ###   ########.fr       */
+/*   Updated: 2018/11/28 17:37:02 by zshanabe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,11 @@
 
 typedef struct	s_list
 {
-	int				el;
+	int				*astack;
+	int				*bstack;
+	int 			el;
+	int 			a;
+	int 			b;
 	void			*content;
 	size_t			content_size;
 	struct s_list	*next;
