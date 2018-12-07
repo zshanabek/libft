@@ -46,7 +46,7 @@ all: $(NAME)
 $(NAME): $(OBJ) $(PF_OBJ) 
 	@ar rc $(NAME) $(OBJ) $(PF_OBJ) 
 	@ranlib $(NAME)
-	@echo "\x1b[32mLibrary is successfully built\x1b[0m"
+	@echo "\033[1;32mLibrary is successfully built\033[0m"	
 
 %.o: %.c
 	@gcc $(FLAGS) -o $@ -c $<
