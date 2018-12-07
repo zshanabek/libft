@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+         #
+#    By: zshanabek <zshanabek@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/10 15:26:36 by zshanabe          #+#    #+#              #
-#    Updated: 2018/11/21 17:41:43 by zshanabe         ###   ########.fr        #
+#    Updated: 2018/12/07 13:32:13 by zshanabek        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ ft_itoa_base.c ft_itoa_base_u.c ft_strupcase.c ft_wstrsub.c ft_wstrnew.c       \
 ft_wstrlen.c ft_putstrw.c ft_putsymbol.c ft_wstrdup.c ft_wstrlen.c			   \
 ft_charlen.c ft_create2darr.c ft_create2dintarr.c get_next_line.c			   \
 ft_print2dintarr.c ft_print1dintarr.c ft_intcpy.c ft_atoimax.c ft_del2darr.c   \
-ft_2darrlen.c ft_strresub.c ft_atoi_base.c ft_isdigital.c
+ft_2darrlen.c ft_strresub.c ft_atoi_base.c ft_isdigital.c ft_putnbrel.c
 
 PF_SRC_NAME = pf_start.c pf_spec_handlers.c pf_colors.c pf_itoa_max.c	       \
 pf_pad_prec_size.c pf_dspec.c pf_uspec.c pf_helpers.c pf_utils.c               \
