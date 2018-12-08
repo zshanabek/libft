@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zshanabek <zshanabek@student.42.fr>        +#+  +:+       +#+         #
+#    By: zshanabe <zshanabe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/10 15:26:36 by zshanabe          #+#    #+#              #
-#    Updated: 2018/12/07 13:32:13 by zshanabek        ###   ########.fr        #
+#    Updated: 2018/12/09 01:00:05 by zshanabe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ all: $(NAME)
 $(NAME): $(OBJ) $(PF_OBJ) 
 	@ar rc $(NAME) $(OBJ) $(PF_OBJ) 
 	@ranlib $(NAME)
-	@echo "\033[1;32mLibrary is successfully built\033[0m"	
+	@echo "\033[0;32mLibrary is successfully built\033[0m"	
 
 %.o: %.c
 	@gcc $(FLAGS) -o $@ -c $<
